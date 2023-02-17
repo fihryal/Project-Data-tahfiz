@@ -4,8 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-
-class CreateEmployeesTable extends Migration
+class AddColumnRoleUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,13 +13,9 @@ class CreateEmployeesTable extends Migration
      */
     public function up()
     {
-        Schema::create('employees', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->enum('status',['Berhasil','Gagal']);
-            $table->string('surat');
-            $table->timestamps();
-        });
+            Schema::table('users', function (Blueprint $table) {
+                $table -> string('role')->nullable()->after('email');
+            });
     }
 
     /**
@@ -30,6 +25,8 @@ class CreateEmployeesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('employees');
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropColumn('role');
+        });
     }
 }

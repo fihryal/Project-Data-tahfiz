@@ -15,9 +15,13 @@ class EmploreeSeeders extends Seeder
     public function run()
     {
         DB::table('employees')->insert([
-            'nama' => 'fihryal faqiy',
-            'status' => 'Lulus',
-            'baris' => '10'
+            'name' => 'fihryal faqiy',
+            'status' => 'Berhasil',
+            'surat' => '10',
+            
+            'name' => 'fihryal faqiy',
+            'status' => 'Berhasil',
+            'surat' => '10'
         ]);
     }
 }
