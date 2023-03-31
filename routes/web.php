@@ -20,10 +20,10 @@ Route::get('/',[HomeController::class,'index']);
 Route::get('/docs',[EmployeeController::class, 'index'])->name('index');
 Route::get('/home',[EmployeeController::class, 'home'])->name('home');
 
-Route::get('/tambahsetoran',[EmployeeController::class, 'tambahsetoran'])->name('tambahsetoran')->middleware('is_admin');
-Route::post('/insertdata',[EmployeeController::class, 'insertdata'])->name('insertdata')->middleware('is_admin');
+Route::get('/tambahsetoran',[EmployeeController::class, 'tambahsetoran'])->name('tambahsetoran')/*->middleware('is_admin');*/;
+Route::post('/insertdata',[EmployeeController::class, 'insertdata'])->name('insertdata')/*->middleware('is_admin');*/;
 
-Route::get('/tampilkandata/{id}',[EmployeeController::class, 'tampilkandata'])->name('tampilkandata')->middleware('is_admin');
+Route::get('/tampilkandata/{id}',[EmployeeController::class, 'tampilkandata'])->name('tampilkandata')/*->middleware('is_admin');*/;
 Route::post('/updatedata/{id}',[EmployeeController::class, 'updatedata'])->name('updatedata')->middleware('is_admin');
 
 
