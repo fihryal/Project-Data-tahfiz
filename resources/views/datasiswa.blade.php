@@ -100,8 +100,9 @@
                     <th class="xl:pr-44 lg: pr-20 md: pr-10 sm: pr-8" scope=" col">Status</th>
                     <th class="xl:pr-44 lg: pr-20 md: pr-10 sm: pr-8" scope=" col">Surat</th>
                     <th class="xl:pr-44 lg: pr-20 md: pr-10 sm: pr-8" scope=" col">Waktu</th>
-
+                    @if (Auth::user()->role == 'admin')
                     <th class="xl:pr-40 lg: pr-20 md: pr-10 sm: pr-8" scope=" col">Aksi</th>
+                    @endif
 
                 </tr>
                 </thead>
@@ -116,11 +117,13 @@
                         <td>{{ $item->status }}</td>
                         <td>{{ $item->surat }}</td>
                         <td>{{ $item->created_at ->diffForHumans() }}</td>
+                        @if (Auth::user()->role == 'admin')
                         <td>
                           <a href="/tampilkandata/{{$item ->id}}" class="btn btn-warning">Edit</a>
                           <a href="#" type="button" class="delete btn btn-danger " data-id="{{ $item->id }}"
                             data-nama="{{ $item->name }}">Delete</a>
                           </td>
+                          @endif
                     </tr>
                     @endforeach
 

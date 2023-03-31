@@ -20,11 +20,12 @@ class EmployeeController extends Controller
     public function index(Request $request) {
         
         if($request-> has('search')){
-            $data = Employee::where('name','LIKE','%'.$request->search.'%')->paginate(5);
+            $data = Employee::where('name','LIKE','%'.$request->search.'%')->orderBy('created_at', 'desc')->paginate(5);
         }else{
-            $data = Employee::paginate(5);
+            $data = Employee::orderBy('created_at', 'desc')->paginate(5);
         }
         
+        // $data = Employee :: orderBy('created_at', 'desc')->get();
         
         return view('datasiswa',compact('data'));
     }
